@@ -35,7 +35,7 @@ try
 catch (PDOException $e)
 {
   echo 'Camagru Internal Server Error: ';
-  // echo 'Camagru Internal Server Error: ' . $e->getMessage();
+   echo 'Camagru Internal Server Error: ' . $e->getMessage();
   exit();
 }
 
@@ -56,7 +56,7 @@ define('ADMIN_EMAIL', 'andreantoniomarques19@gmail.com');
 ** Vars prefixed with SLACK are the oauth api endpoints used in auth.php
 */
 
-define('SITE_URL', 'http://' . $_SERVER['HTTP_HOST'] . str_replace($_SERVER['DOCUMENT_ROOT'], '', str_replace('\\', '/', dirname(__DIR__))));
+define('SITE_URL', 'http://' . $_SERVER['HTTP_HOST'] );
 define('SITE_HOST', 'http://' . $_SERVER['HTTP_HOST']);
 
 /*
