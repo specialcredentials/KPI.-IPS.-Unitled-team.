@@ -52,13 +52,13 @@ class App
 
   protected function parseUrl()
   {
-    if (isset($_GET['url']))
+    if (isset($_SERVER['REQUEST_URI']))
     {
-      $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
+      $url = explode('/', filter_var(rtrim($_SERVER['REQUEST_URI'], '/'), FILTER_SANITIZE_URL));
       return array(
-        'controller' => isset($url[0]) ? $url[0] : 'home',
-        'method' => isset($url[1]) ? $url[1] : 'index',
-        'params' => array_slice($url, 2)
+        'controller' => isset($url[1]) ? $url[1] : 'home',
+        'method' => isset($url[2]) ? $url[2] : 'index',
+        'params' => array_slice($url, 3)
       );
     }
   }
